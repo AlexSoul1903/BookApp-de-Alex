@@ -1,0 +1,29 @@
+<main>
+    <div class="row">
+<h1 class="text-center  text-danger ">Pokemon filtrado {{nombre}} </h1>
+
+ {{#if hasPokemonF2}}
+{{#each  pokemonsF2 as |poke|}}
+<div class="col-md-4 mt-5">
+    <div class="card   bg-dark text-light">
+    <img src="{{poke.imagen}}" class="card-img-top" style="width: 100%; height:300px; object-fit:contain;" alt="{{poke.nombre}}">
+    <div class="card-body">
+        <p class="card-title text-info">Nombre:{{poke.nombre}}</p>
+        <p class="card-text">Region:{{poke.region.dataValues.nombre}}</p>
+        <p class="card-text">{{poke.type.dataValues.nombre}}. {{poke.typesec.dataValues.nombre}}</p>
+    </div>
+</div>
+</div>
+
+{{/each}}
+
+{{else}}
+
+<h4 class="  text-center">No se encontro Pokemons con el nombre: {{nombre}}</h4>
+
+
+{{/if}}
+
+</div>
+
+</main>

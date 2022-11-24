@@ -1,0 +1,64 @@
+
+<main>
+
+
+<h1 class="text-center  text-danger ">Libros.</h1>
+
+ <form method="POST" action="/index">
+        <div class="mb-3">
+          <label for="nombre" class="form-label"><h2 style="font-size: large;">Ingrese el nombre del libro que desea buscar:</h2></label>
+          <br>
+          <input type="text" class="form-control-sm" id="nombre" name="Nombre" value="" />
+
+  <button class=" btn btn-info d-inline-flex mx-2 " type="submit">Buscar</button>
+
+        </div>
+
+ </form>
+
+ 
+
+
+
+<div class="main-container">
+
+
+<div class="row">
+
+
+ {{#if hasLibros}}
+
+        {{#each libro as |lib|}}
+
+<div class="col-md-4 mt-4">
+
+   <div class="card  bg-dark text-light">
+    <img src="{{lib.imagen}}" style="width: 100%; height:300px; object-fit:contain;"  class="card-img-top" alt="{{lib.nombre}}">
+    <div class="card-body">
+        <h5 class="card-text text-info">Libro: {{lib.nombre}}</h5>
+        <p class="card-text">Fecha de estreno: {{lib.relase_date}}</p>
+        <p class="card-text">Editorial: {{lib.editorial.dataValues.nombre}}</p>
+          <p class="card-text">Categoria: {{lib.categoria.dataValues.nombre}}</p>
+            <p class="card-text">Autor: {{lib.autor.dataValues.nombre}}</p>
+            
+    </div>
+
+
+</div>
+
+</div>
+
+  {{/each}}
+
+      {{else}}
+        <h1>no hay Libros guardados</h1>
+
+      {{/if}}
+
+</div>
+
+</div>
+
+</div>
+
+</main>

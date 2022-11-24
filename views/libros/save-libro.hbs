@@ -1,0 +1,145 @@
+<main>
+<div class="row">
+
+ <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+{{#if hasAutores}}
+{{#if hasCategoria}}
+{{#if hasEditorial}}
+  <div class="card ">
+    <div class="card-header bg-info text-lg-end">
+      <h2 class=" text-center">Manejador de Libros</h2>
+    </div>
+
+{{#if editMode}}
+ <img src="{{libro.imagen}}" class="card-img-tob mt-4" style="width: 100%; height:300px; object-fit:contain;" alt="{{libro.nombre}}">
+
+ {{/if}}
+
+    <div class="card-body">
+
+      <form enctype="multipart/form-data" method="POST" action="{{#if editMode}}/edit-libro{{else}}/save-libro{{/if}}">
+        <div class="mb-3">
+          
+          <label for="name" class="form-label">Libro:</label>
+          <input type="text" class="form-control" id="name" name="Name" value="{{#if editMode}}{{libro.nombre}}{{/if}}" required/>
+
+        </div>
+        <div class="mb-3">
+          <label for="image-file" class="form-label">Ingrese la imagen del libro:</label>
+          <input type="file" class="form-control" id="image-file" name="Image"{{#if editMode}}{{else}}required{{/if}} />
+
+        </div>
+         <div class="mb-3">
+          <label for="date" class="form-label">Ingrese la fecha de estreno del libro:</label>
+          <input type="date" class="form-control" id="date" name="Date" value="{{#if editMode}}{{libro.relase_date}}{{/if}}" required/>
+
+        </div>
+       
+
+   <div class="mb-3">
+
+
+          <label for="categoria" class="form-label">Categoria:</label>
+          <select required name="Categoria" id="categoria" class=" form-select border-radius ">
+  
+              <option value=""{{#if editMode}}{{else}}selected{{/if}}>Seleccione una Categoria.</option>
+  
+              {{#each categoria as |categoria|}}
+
+              {{#if (IgualValor categoria.id ../libro.categoryId)}}
+
+                  <option selected  value="{{categoria.id}}">{{categoria.nombre}}</option>
+
+                  {{else}}
+       <option  value="{{categoria.id}}">{{categoria.nombre}}</option>
+
+       {{/if}}
+
+               {{/each}}
+
+
+                       
+          </select>
+        </div>
+
+         <div class="mb-3">
+          <label for="editorial" class="form-label">Seleccione la editorial:</label>
+          <select required name="Editorial" id="editorial" class=" form-select border-radius ">
+
+              <option value="">Seleccione la editorial.</option>
+              
+              {{#each editorial as |editorial|}}
+
+               {{#if (IgualValor editorial.id ../libro.editorialId)}}
+               
+               <option selected value="{{editorial.id}}">{{editorial.nombre}}</option>
+
+               {{else}}
+                  <option value="{{editorial.id}}">{{editorial.nombre}}</option>
+
+{{/if}}
+
+               {{/each}}
+
+          </select>
+        </div>
+
+       
+         <div class="mb-3">
+          <label for="autor" class="form-label">Seleccione el autor:</label>
+          <select  name="Autor" id="autor" class=" form-select border-radius ">
+
+   <option value="">Seleccione un autor.</option>
+              
+              {{#each autor as |autor|}}
+
+                  {{#if (IgualValor autor.id ../libro.autorId)}}
+
+  <option selected value="{{autor.id}}">{{autor.nombre}}</option>
+
+      {{else}}
+                  <option value="{{autor.id}}">{{autor.nombre}}</option>
+
+
+{{/if}}
+               {{/each}}
+
+          </select>
+        </div>
+
+<div>
+
+  {{#if editMode}}
+
+          <input type="hidden" value="{{libro.id}}" name="libroId">
+          
+          {{/if}}
+                
+        <button id="enviar" type="submit" class="btn btn-primary">{{#if editMode}}Editar{{else}}Agregar{{/if}}</button>
+         <a href="/admin-libro" type="button" class="btn btn-warning">volver atras</a>
+      </form>
+
+    </div>
+  </div>
+{{else}}
+<h2 class=" text-danger">No hay editoriales guardadas</h2>
+
+{{/if}}
+
+{{else}}
+<h2 class=" text-danger">No hay categorias guardadas</h2>
+
+{{/if}}
+
+{{else}}
+
+<h2 class=" text-danger">No hay autores guardados</h2>
+{{/if}}
+  </div>
+ <div class="col-md-6"></div>
+
+<div class="row">
+
+</main>

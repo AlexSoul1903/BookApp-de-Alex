@@ -1,0 +1,47 @@
+
+<main>
+<h1 class="text-center  text-success  ">Categorias.</h1>
+
+<div class="main-container">
+      <a class=" btn btn-primary " href="/save-categoria">Crear Categoria</a>
+
+
+<div class="row">
+
+{{#if hasCategoria}}
+
+{{#each categoria as |cat|}}
+
+<div class="col-md-4 mt-5">
+
+   <div class="card bg-dark text-light" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 required class="card-text text-info">Categoria:{{cat.nombre}}</h5>
+        <p required class=" card-text">Descripcion: {{cat.descripcion}}</p>
+
+              <form class="form-inline" id="form-delete2" action="/delete-categoria" method="post">
+                    <input type="hidden" name="categoriaId" value="{{cat.id}}">
+            <button type="submit" class=" btn btn-danger mx-2 delete-categoria" >Eliminar</button>
+            
+      <a class=" btn btn-success" href="/edit-categoria/{{cat.id}}?edit=true">editar</a>       
+              </form>
+    </div>
+
+
+</div>
+
+</div>
+
+{{/each}}
+
+{{else}}
+
+<h1 class=" text-danger ">No hay categorias creadas</h1>
+
+{{/if}}
+
+</div>
+</div>
+
+</main>

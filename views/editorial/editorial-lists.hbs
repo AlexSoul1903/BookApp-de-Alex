@@ -1,0 +1,49 @@
+
+<main>
+<h1 class="text-center  text-danger ">Editoriales.</h1>
+
+<div class="main-container">
+
+      <a class=" btn btn-primary " href="/save-editorial">Crear editorial</a>
+
+<div class="row">
+
+{{#if hasEditorial}}
+
+{{#each editorial as |editorial|}}
+
+<div class="col-md-4 mt-5">
+
+   <div class="card bg-dark text-light" style="width: 18rem;">
+    <div class="card-body">
+        <h5 required class="card-text text-light ">Editorial: {{editorial.nombre}}</h5>
+        <p required class="card-text">Telefono: {{editorial.telefono}}</p>
+         <p required class="card-text">Pais: {{editorial.pais}}</p>
+              <form class="form-inline" id="form-delete3" action="/delete-editorial" method="post">
+                    <input type="hidden" name="editorialId" value="{{editorial.id}}">
+            <button type="submit" class=" btn btn-danger mx-2 delete-type"  >Eliminar</button>
+            
+      <a class=" btn btn-success" href="/edit-editorial/{{editorial.id}}?edit=true">editar</a>       
+              </form>
+    </div>
+
+
+</div>
+
+</div>
+
+{{/each}}
+
+{{else}}
+
+<h1 class=" text-danger ">No hay editoriales creadas</h1>
+
+{{/if}}
+
+
+
+</div>
+
+</div>
+
+</main>
