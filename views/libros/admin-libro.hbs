@@ -1,0 +1,50 @@
+
+<main>
+<h1 class="text-center  text-danger ">Libros.</h1>
+
+      <a class=" btn btn-primary " href="/save-libro">Crear Libro</a>
+
+<div class="main-container">
+
+
+<div class="row">
+
+  {{#if hasLibros}}
+
+        {{#each libro as |lib|}}
+
+<div class="col-md-4 mt-5">
+
+   <div class="card  bg-dark text-light">
+    <img src="{{lib.imagen}}" style="width: 100%; height:300px; object-fit:contain;"  class="card-img-top" alt="{{lib.nombre}}">
+    <div class="card-body">
+        <h5 class="card-text text-info">Libro: {{lib.nombre}}</h5>
+        <p class="card-text">Fecha de estreno: {{lib.relase_date}}</p>
+        <p class="card-text">Editorial: {{lib.editorial.dataValues.nombre}}</p>
+        <p class="card-text">Categoria: {{lib.category.dataValues.nombre}}</p>
+        <p class="card-text">Autor: {{lib.autor.dataValues.nombre}}</p>    
+      <form id="form-delete" class="form-inline" action="/delete-libro" method="POST">
+                           <input type="hidden" name="libroId" value="{{lib.id}}" />
+                  <button type="submit" class=" btn btn-danger mx-2 delete-pokemon" >Eliminar</button>
+                        <a class=" btn btn-success" href="/edit-libro/{{lib.id}}?edit=true">Editar</a>
+              </form>
+    </div>
+
+
+</div>
+
+</div>
+
+  {{/each}}
+
+      {{else}}
+
+      
+        <h1>no hay Pokemons creados</h1>
+
+
+      {{/if}}
+
+</div>
+
+</main>

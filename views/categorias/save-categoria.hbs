@@ -1,0 +1,39 @@
+<div class="row">
+
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+    <div class="card">
+      <div class="card-header bg-dark text-white">
+        {{#if editMode}}Edicion{{else}}Creacion{{/if}} de Categorias
+      </div>
+
+      <div class="card-body">
+
+        <form method="POST" action="{{#if editMode}}/edit-categoria{{else}}/save-categoria{{/if}}">
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Categoria:</label>
+            <input type="text" class="form-control" id="categoria" name="Categoria"  required value="{{#if editMode}}{{categoria.nombre}}{{/if}}"/>
+          </div>    
+             <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion:</label>
+            <input type="text" class="form-control" id="descripcion" name="Descripcion" required value="{{#if editMode}}{{categoria.descripcion}}{{/if}}"/>
+          </div>       
+
+          {{#if editMode}}
+
+          <input type="hidden" name="categoriaId" value="{{categoria.id}}">
+          
+          {{/if}}
+
+          <button type="submit" class="btn btn-primary">{{#if editMode}}Editar{{else}}Crear{{/if}}</button>
+           <a href="/categorias" type="button" class="btn btn-warning">volver atras</a>
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-6"></div>
+
+</div>

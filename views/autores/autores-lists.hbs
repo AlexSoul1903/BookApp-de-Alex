@@ -1,0 +1,46 @@
+
+<main>
+<h1 class="text-center  text-success  ">Autores.</h1>
+<div class="main-container">
+      <a class=" btn btn-primary " href="/save-autor">Crear Autor</a>
+
+
+<div class="row">
+
+{{#if hasAutor}}
+
+{{#each autor as |autor|}}
+
+<div class="col-md-4 mt-5">
+
+   <div class="card bg-dark text-light" style="width: 18rem;">
+
+    <div class="card-body">
+        <h5 required class="card-text text-info">Nombre: {{autor.nombre}}</h5>
+        <p required class=" card-text">Correo: {{autor.correo}}</p>
+
+              <form class="form-inline" id="form-delete2" action="/delete-autor" method="post">
+                    <input type="hidden" name="autorId" value="{{autor.id}}">
+            <button type="submit" class=" btn btn-danger mx-2 delete-autor" >Eliminar</button>
+            
+      <a class=" btn btn-success" href="/edit-autor/{{autor.id}}?edit=true">editar</a>       
+              </form>
+    </div>
+
+
+</div>
+
+</div>
+
+{{/each}}
+
+{{else}}
+
+<h1 class=" text-danger ">No hay autores creados</h1>
+
+{{/if}}
+
+</div>
+</div>
+
+</main>
