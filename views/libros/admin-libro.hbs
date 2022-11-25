@@ -25,7 +25,7 @@
         <p class="card-text">Autor: {{lib.autor.dataValues.nombre}}</p>    
       <form id="form-delete" class="form-inline" action="/delete-libro" method="POST">
                            <input type="hidden" name="libroId" value="{{lib.id}}" />
-                  <button type="submit" class=" btn btn-danger mx-2 delete-pokemon" >Eliminar</button>
+                  <button type="submit" class=" btn btn-danger mx-2 delete-libro" >Eliminar</button>
                         <a class=" btn btn-success" href="/edit-libro/{{lib.id}}?edit=true">Editar</a>
               </form>
     </div>

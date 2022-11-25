@@ -15,11 +15,7 @@
         </div>
 
  </form>
-
  
-
-
-
 <div class="main-container">
 
 
@@ -31,14 +27,18 @@
         {{#each libro as |lib|}}
 
 <div class="col-md-4 mt-4">
-
+ 
    <div class="card  bg-dark text-light">
+   <p class="card-text " >Dar click en la imagen para ver detalles del libro</p>
+
+     <a class=" btn btn-dark " href="/libro/{{this.id}}">
     <img src="{{lib.imagen}}" style="width: 100%; height:300px; object-fit:contain;"  class="card-img-top" alt="{{lib.nombre}}">
+    </a>
     <div class="card-body">
         <h5 class="card-text text-info">Libro: {{lib.nombre}}</h5>
         <p class="card-text">Fecha de estreno: {{lib.relase_date}}</p>
         <p class="card-text">Editorial: {{lib.editorial.dataValues.nombre}}</p>
-          <p class="card-text">Categoria: {{lib.categoria.dataValues.nombre}}</p>
+          <p class="card-text">Categoria: {{lib.category.dataValues.nombre}}</p>
             <p class="card-text">Autor: {{lib.autor.dataValues.nombre}}</p>
             
     </div>

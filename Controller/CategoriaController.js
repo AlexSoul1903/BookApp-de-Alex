@@ -1,8 +1,9 @@
 const Categoria = require("../models/Categorias");
+const Libros = require("../models/Libros");
 
 exports.GetCategoria = (req, res, next) => {
 
-    Categoria.findAll()
+    Categoria.findAll({ include: [{ model: Libros }] })
         .then((result) => {
             const categoria = result.map((result) => result.dataValues);
 

@@ -1,9 +1,11 @@
 const Editorial = require("../models/Editorial");
+const Libro = require("../models/Libros");
+
 
 exports.GetEditorial = (req, res, next) => {
 
 
-    Editorial.findAll()
+    Editorial.findAll({ include: [{ model: Libro }] })
         .then((result) => {
             const editorial = result.map((result) => result.dataValues);
 
@@ -21,6 +23,7 @@ exports.GetEditorial = (req, res, next) => {
 
 
 };
+
 exports.GetSaveEditorial = (req, res, next) => {
 
     res.render("editorial/save-editorial", {

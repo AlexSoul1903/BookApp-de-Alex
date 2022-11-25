@@ -1,0 +1,41 @@
+<main>
+<div class="main-container">
+
+
+<div class="row">
+
+
+
+<div class="col-md-4 mt-4">
+
+   <div class="card  bg-dark text-light">
+ 
+    <img src="{{libro.imagen}}" style="width: 100%; height:300px; object-fit:contain;"  class="card-img-top" alt="{{libro.nombre}}">
+
+    <div class="card-body">
+        <h5 class="card-text text-info">Libro: {{libro.nombre}}</h5>
+        <p class="card-text">Fecha de estreno: {{libro.relase_date}}</p>
+        <p class="card-text">Editorial: {{libro.editorial.dataValues.nombre}}</p>
+                <p class="card-text">Pais del editorial: {{libro.editorial.dataValues.pais}}</p>
+   <p class="card-text">Telefono del editorial: {{libro.editorial.dataValues.telefono}}</p>
+          <p class="card-text">Categoria: {{libro.category.dataValues.nombre}}</p>
+            <p class="card-text">Autor: {{libro.autor.dataValues.nombre}}</p>
+            
+    </div>
+
+
+</div>
+
+</div>
+
+
+
+     
+
+</div>
+
+</div>
+
+</div>
+
+</main>

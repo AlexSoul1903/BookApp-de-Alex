@@ -14,4 +14,8 @@ router.post("/save-libro", LibrosController.PostSaveLibro);
 router.get("/edit-libro/:libroId", LibrosController.GetEditLibro);
 router.post("/delete-libro", LibrosController.PostDeleteLibro);
 router.post("/edit-libro", LibrosController.PostEditLibro);
+router.post("/", LibrosController.FiltroCategoria);
+router.post("/index", LibrosController.FiltroNombre);
+router.get("/libro/:libroId", LibrosController.GetDetalles);
+
 module.exports = router;

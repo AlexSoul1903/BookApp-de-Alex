@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 
+let cantidad = 0;
 const router = express.Router();
 
 const EditorialControler = require("../Controller/EditorialController");

@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
 
-    $(".delete-pokemon").on('click', function(e) {
+    $(".delete-libro").on('click', function(e) {
 
         e.preventDefault();
-        if (confirm("Estas seguro que deseas eliminar este pokemon?")) {
+        if (confirm("Estas seguro que deseas eliminar este libro?")) {
 
             $(this).closest("#form-delete").submit();
 
@@ -12,11 +12,11 @@ $(document).ready(function() {
 
     });
 
-    $(".delete-region").on('click', function(e) {
+    $(".delete-editorial").on('click', function(e) {
 
         e.preventDefault();
 
-        if (confirm("Estas seguro que deseas eliminar esta region?")) {
+        if (confirm("Estas seguro que deseas eliminar este editorial?")) {
 
             $(this).closest("#form-delete2").submit();
 
@@ -24,18 +24,28 @@ $(document).ready(function() {
 
     });
 
-    $(".delete-type").on('click', function(e) {
+    $(".delete-autor").on('click', function(e) {
 
         e.preventDefault();
 
-        if (confirm("Estas seguro que deseas eliminar este tipo?")) {
+        if (confirm("Estas seguro que deseas eliminar este autor?")) {
 
             $(this).closest("#form-delete3").submit();
 
         }
 
     });
+    $(".delete-categoria").on('click', function(e) {
 
+        e.preventDefault();
+
+        if (confirm("Estas seguro que deseas eliminar esta categoria?")) {
+
+            $(this).closest("#form-delete5").submit();
+
+        }
+
+    });
 
 
 });
