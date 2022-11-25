@@ -19,8 +19,8 @@
     <div class="card-body">
         <h5 required class="card-text text-info">Categoria:{{cat.nombre}}</h5>
         <p required class=" card-text">Descripcion: {{cat.descripcion}}</p>
-
-              <form class="form-inline" id="form-delete2" action="/delete-categoria" method="post">
+<p  class=" card-text">Cantidad de libros con esta categoria: {{cat.Libros.length}}</p>
+              <form class="form-inline" id="form-delete5" action="/delete-categoria" method="post">
                     <input type="hidden" name="categoriaId" value="{{cat.id}}">
             <button type="submit" class=" btn btn-danger mx-2 delete-categoria" >Eliminar</button>
             

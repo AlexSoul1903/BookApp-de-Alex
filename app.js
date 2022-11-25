@@ -28,6 +28,7 @@ app.engine('hbs', expressHbs({
     extname: "hbs",
     helpers: {
         IgualValor: comparador.IgualValor,
+
     },
 }));
 
@@ -58,8 +59,6 @@ app.use(editoriales);
 app.use(libro);
 app.use(categoria);
 app.use(autores);
-
-
 app.use("/", ErrorController.Get404);
 
 
@@ -76,9 +75,9 @@ Editoriales.hasMany(Libros);
 Libros.belongsTo(Categoria, { constraint: true, onDelete: "CASCADE" });
 Categoria.hasMany(Libros);
 
-sequelize.sync( /*{ alter: true }*/ ).then(function(result) {
+sequelize.sync({ alter: true }).then(function(result) {
 
-    app.listen(44197);
+    app.listen(44190);
 
 }).catch(err => {
 

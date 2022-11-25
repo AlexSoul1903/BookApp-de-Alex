@@ -1,25 +1,31 @@
 <main>
     <div class="row">
-<h1 class="text-center  text-danger ">Pokemons filtrados de {{region}} </h1>
+<h1 class="text-center  text-danger ">Libros filtrados por categorias </h1>
 
- {{#if hasPokemonF}}
-{{#each  pokemonsF as |poke|}}
-<div class="col-md-4 mt-5">
-    <div class="card   bg-dark text-light">
-    <img src="{{poke.imagen}}" class="card-img-top" style="width: 100%; height:300px; object-fit:contain;" alt="{{poke.nombre}}">
+ {{#if hasLibroF}}
+{{#each  libroF as |lib|}}
+<div class="col-md-4 mt-4">
+
+   <div class="card  bg-dark text-light">
+    <img src="{{lib.imagen}}" style="width: 100%; height:300px; object-fit:contain;"  class="card-img-top" alt="{{lib.nombre}}">
     <div class="card-body">
-        <p class="card-title text-info">Nombre:{{poke.nombre}}</p>
-        <p class="card-text">Region:{{poke.region.dataValues.nombre}}</p>
-        <p class="card-text">{{poke.type.dataValues.nombre}}. {{poke.typesec.dataValues.nombre}}</p>
+        <h5 class="card-text text-info">Libro: {{lib.nombre}}</h5>
+        <p class="card-text">Fecha de estreno: {{lib.relase_date}}</p>
+        <p class="card-text">Editorial: {{lib.editorial.dataValues.nombre}}</p>
+          <p class="card-text">Categoria: {{lib.category.dataValues.nombre}}</p>
+            <p class="card-text">Autor: {{lib.autor.dataValues.nombre}}</p>
+            
     </div>
-</div>
+
+
 </div>
 
+</div>
 {{/each}}
 
 {{else}}
 
-<h4 class="  text-center">No hay Pokemons</h4>
+<h4 class="  text-center">No hay Libros</h4>
 
 
 {{/if}}

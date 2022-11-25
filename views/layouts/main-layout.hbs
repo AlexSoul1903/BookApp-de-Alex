@@ -52,12 +52,23 @@
     <form method="POST" class=" d-inline-flex " action="/">
 
 
-      <select id="region" name="Region" class="form-select border-radius d-inline-flex  mx-4 bg-danger text-light " >
+      <select id="categoria" name="Categoria" class="form-select border-radius d-inline-flex mx-4 bg-danger text-light " >
 
-                     <option value=""selected>Seleccione una region.</option>
+                     <option value=""selected>Seleccione una categoria.</option>
 
-                     {{#each region as |reg|}}
-                        <option value="{{reg.id}}">{{reg.nombre}}</option>
+                     {{#each categoria as |cat|}}
+                        <option value="{{cat.id}}">{{cat.nombre}}</option>
+ 
+                        {{/each}}
+
+      </select>
+
+         <select id="categoria2" name="Categoria2" class="form-select border-radius d-inline-flex  mx-4 bg-danger text-light " >
+
+                     <option value=""selected>Seleccione una otra categoria.</option>
+
+                     {{#each categoria as |cat|}}
+                        <option value="{{cat.id}}">{{cat.nombre}}</option>
  
                         {{/each}}
 
